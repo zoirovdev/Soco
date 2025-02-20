@@ -6,7 +6,7 @@ Clone it from github
 git clone https://github.com/zoirovdev/Soco.git
 ```
 
-Run command below
+Run command 
 ```
 make
 ```
