@@ -16,7 +16,7 @@
 
 
 char board[HEIGHT][WIDTH];
-bool isgameover;
+int isgameover;
 int score;
 
 void put_walls(){
@@ -129,7 +129,7 @@ void move(int x, int y){
 	
 	if(board[dest_y][dest_x] == DEMON){
 		printf("\nYou reached <%d scores>\n", score);
-		isgameover = false;
+		isgameover = 0;
 	} else if(board[dest_y][dest_x] == FOOD){
 		board[pacman_y][pacman_x] = EMPTY;
 		board[dest_y][dest_x] = PACMAN;
@@ -146,9 +146,15 @@ int main(){
 	put_demons();
 	put_foods();
 	put_pacman();
-	
+
+	printf("Movements: up -> w\tdown -> s\tleft -> a\tright -> d\n");
+	printf("Enter y to continue => ");
+	char y;
+	scanf("%c", &y);
+	if(y=='y') isgameover = 1;
+	else  isgameover = 0; 
+
 	score = 0;
-	isgameover = true;
 	while(isgameover){
 
 		system("clear");
@@ -172,7 +178,7 @@ int main(){
 			case 'q':
 				printf("\nYou reached <%d scores>\n", score);
 				printf("Quit\n");
-				isgameover = false;
+				isgameover = 0;
 				break;
 			}
 	}
