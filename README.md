@@ -13,5 +13,5 @@ make
 
 Run executable
 ```
-./exe
+./pacman
 ```
