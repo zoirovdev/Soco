@@ -1,22 +1,17 @@
-
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11
 
-SRC = main.c
+SRC = main.c pacman.c
 OBJ = $(SRC:.c=.o)
-EXE = exe
 
+all: pacman
 
-all: $(EXE)
-
-
-$(EXE): $(OBJ)
+pacman: $(OBJ)
 	$(CC) $(CFLAGS) $^ -o $@
 
-
-%.o: %.c
+%.o: %.c pacman.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
-
 clean:
-	rm -f $(EXE) $(OBJ)
+	rm -f *.o pacman
+
